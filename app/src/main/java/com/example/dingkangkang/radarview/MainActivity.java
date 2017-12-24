@@ -11,7 +11,6 @@ import static java.lang.Math.sin;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private WaveLoadingView mWaveLoadingView;
     private RadarView radarView;
     private double x=0;
 
