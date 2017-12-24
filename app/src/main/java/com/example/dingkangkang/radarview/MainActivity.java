@@ -3,7 +3,6 @@ package com.example.dingkangkang.radarview;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.util.TypedValue;
 
 import static java.lang.Math.cos;
@@ -40,14 +39,15 @@ public class MainActivity extends AppCompatActivity {
 //                x1   =   x0   +   r   *   cos(ao   *   3.14   /180   )
 //                y1   =   y0   +   r   *   sin(ao   *   3.14   /180   )
 
+                //计算圆上点的坐标
                 for(int i=0;i<10;i++){
                     count[i]= (int) (width/2+width/2*cos((x-1-i)*3.14/180));
                     count2[i]= (int) (width/2+width/2*sin((x-1-i)*3.14/180));
                 }
-
+                //设置指针尾巴
                 radarView.setLocation2(count,count2);
+                //设置指针
                 radarView.setLocation((width/2+width/2*cos(x*3.14/180)),(height/2+width/2*sin(x*3.14/180)));
-                Log.d("1111",(width/2+width/4*cos(x*3.14/180))+"::::::"+(height/2+width/4*sin(x*3.14/180)));
 
                 if(x>=360){
                     x=0;

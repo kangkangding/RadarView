@@ -89,6 +89,7 @@ public class RadarView extends View{
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        //绘制背景圆
         p.setColor(Color.GREEN);
         for(int i=0;i<128;i=i+3){
             for (int j=0;j<128;j=j+3){
@@ -98,6 +99,7 @@ public class RadarView extends View{
         }
 
 
+        //绘制区域圆
         p.setStyle(Paint.Style.STROKE);
 
         p.setColor(Color.BLUE);
@@ -109,12 +111,13 @@ public class RadarView extends View{
 
 
 
+        //绘制指针
         p.setStyle(Paint.Style.FILL);
         p.setColor(Color.RED);
         canvas.drawCircle(width/2,height/2,width/64,p);
-
         canvas.drawLine(width/2,height/2,(float) xwidth,(float)xheight,p);
 
+        //绘制指针尾巴
         for(int i=0;i<count.length;i++){
             p.setColor(Color.argb((10-i)+(10-i)*10,255,0,0));
             canvas.drawLine(width/2,height/2,(float) count[i],(float)count2[i],p);
@@ -123,6 +126,7 @@ public class RadarView extends View{
 
         Log.d("2222",(float) xwidth+":::::"+(float)xheight);
 
+        //10ms 后刷新
         postInvalidateDelayed(10);
 
 
